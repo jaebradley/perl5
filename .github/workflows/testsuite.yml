@@ -205,7 +205,6 @@ jobs:
     runs-on: macos-10.0
     timeout-minutes: 120
     needs: sanity_check
-    if: needs.sanity_check.outputs.run_all_jobs == 'true'
 
     env:
       PERL_SKIP_TTY_TEST: 1
@@ -231,7 +230,6 @@ jobs:
     runs-on: macos-11.0
     timeout-minutes: 120
     needs: sanity_check
-    if: needs.sanity_check.outputs.run_all_jobs == 'true'
 
     env:
       PERL_SKIP_TTY_TEST: 1
