@@ -241,7 +241,7 @@ jobs:
           fetch-depth: 10
       - name: Configure
         run: |
-          export SDK=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.0.sdk
+          export SDK=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk
           sh ./Configure -des -Dusedevel
       - name: Build
         run: |
