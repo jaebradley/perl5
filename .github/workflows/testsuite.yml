@@ -226,31 +226,31 @@ jobs:
         run: |
           make -j2 test
 
-#   smoke-macos-big-sur-xcode12:
-#     name: "macOS (big sur) xcode 12"
-#     runs-on: macos-11.0
-#     timeout-minutes: 120
-#     needs: sanity_check
+  smoke-macos-big-sur-xcode12:
+    name: "macOS (big sur) xcode 12"
+    runs-on: macos-11.0
+    timeout-minutes: 120
 
-#     env:
-#       PERL_SKIP_TTY_TEST: 1
-#       CONTINUOUS_INTEGRATION: 1
+    env:
+      PERL_SKIP_TTY_TEST: 1
+      CONTINUOUS_INTEGRATION: 1
 
-#     steps:
-#       - uses: actions/checkout@v2
-#         with:
-#           fetch-depth: 10
-#       - name: Configure
-#         run: |
-#           sudo xcode-select -s "/Applications/Xcode_12.2.app"
-#           export SDK=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.0.sdk
-#           sh ./Configure -des -Dusedevel
-#       - name: Build
-#         run: |
-#           make -j2
-#       - name: Run Tests
-#         run: |
-#           make -j2 test
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 10
+      - name: Configure
+        run: |
+          xcodebuild -version
+          sudo xcode-select -s "/Applications/Xcode_12.2.app"
+          export SDK=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.0.sdk
+          sh ./Configure -des -Dusedevel
+      - name: Build
+        run: |
+          make -j2
+      - name: Run Tests
+        run: |
+          make -j2 test
 
   #         _         _
   # __ __ _(_)_ _  __| |_____ __ _____
