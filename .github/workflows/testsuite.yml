@@ -242,7 +242,6 @@ jobs:
       - name: Configure
         run: |
           xcodebuild -version
-          sudo xcode-select -s "/Applications/Xcode_12.2.app"
           export SDK=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.0.sdk
           sh ./Configure -des -Dusedevel
       - name: Build
